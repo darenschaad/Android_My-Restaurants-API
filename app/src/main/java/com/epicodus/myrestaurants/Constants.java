@@ -4,6 +4,10 @@ package com.epicodus.myrestaurants;
  * Created by staff on 4/20/16.
  */
 public class Constants {
+    public static final String FIREBASE_URL = BuildConfig.FIREBASE_ROOT_URL;
+
+    public static final String PREFERENCES_LOCATION_KEY = "location";
+
     public static final String YELP_CONSUMER_KEY = BuildConfig.YELP_CONSUMER_KEY;
     public static final String YELP_CONSUMER_SECRET = BuildConfig.YELP_CONSUMER_SECRET;
     public static final String YELP_TOKEN = BuildConfig.YELP_TOKEN;
