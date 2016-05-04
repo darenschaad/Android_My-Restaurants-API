@@ -151,10 +151,10 @@ public class YelpService {
                 for (int i = 0; i < businessesJSON.length(); i++) {
                     JSONObject restaurantJSON = businessesJSON.getJSONObject(i);
                     String name = restaurantJSON.getString("name");
-                    String phone = restaurantJSON.getString("display_phone");
+                    String phone = restaurantJSON.optString("display_phone", "No phone available");
                     String website = restaurantJSON.getString("url");
                     double rating = restaurantJSON.getDouble("rating");
-                    String imageUrl = restaurantJSON.getString("image_url");
+                    String imageUrl = restaurantJSON.optString("image_url", "http://vignette3.wikia.nocookie.net/max-steel-reboot/images/7/72/No_Image_Available.gif/revision/latest?cb=20130902173013");
                     Log.d("IMGURL", imageUrl);
                     double latitude = restaurantJSON.getJSONObject("location")
                             .getJSONObject("coordinate").getDouble("latitude");

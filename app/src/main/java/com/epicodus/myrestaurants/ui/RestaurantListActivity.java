@@ -114,17 +114,12 @@ public class RestaurantListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurants);
         ButterKnife.bind(this);
 
-//        Intent intent = getIntent();
-//        String location = intent.getStringExtra("location");
-
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
         if (mRecentAddress != null) {
             getRestaurants(mRecentAddress);
         }
 
-
-//        getRestaurants(location);
     }
 
     @Override

@@ -70,7 +70,12 @@ public class Restaurant {
     }
 
     public String getLargeImageURL(String imageUrl) {
-        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
-        return largeImageUrl;
+        if (imageUrl.equals("http://vignette3.wikia.nocookie.net/max-steel-reboot/images/7/72/No_Image_Available.gif/revision/latest?cb=20130902173013")) {
+            return imageUrl;
+        }
+        else {
+            String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
+            return largeImageUrl;
+        }
     }
 }
