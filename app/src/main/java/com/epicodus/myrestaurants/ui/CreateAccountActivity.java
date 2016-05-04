@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.R;
+import com.epicodus.myrestaurants.models.User;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
@@ -64,13 +65,20 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         mFirebaseRef.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>(){
             @Override
             public void onSuccess(Map<String, Object> result) {
-
+                String uid = result.get("uid").toString();
+                createUserInFirebaseHelper(name, email, uid);
             }
             @Override
             public void onError(FirebaseError firebaseError) {
                 Log.d(TAG, "error occured " + firebaseError);
             }
         });
+    }
+
+    private void createUserInFirebaseHelper(final String name, final String email, final String uid){
+        final Firebase userLocation = new Firebase(Constants.FIREBASE_URL_USERS).child(uid);
+        User newUser = new User(name, email);
+        userLocation.setValue(newUser);
     }
 
 }
